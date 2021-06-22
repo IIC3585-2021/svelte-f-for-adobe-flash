@@ -9,7 +9,7 @@ Repositorio del grupo 6 para la tarea 6 del ramo Diseño avanzado de aplicacione
 
 ## Como ejecutar:
 
-Para ejecutar nuestro frontend en svelte, se debe utilizar el comando `` dentro de la carpeta "" e ingresar mediante el browser a localhost en el puerto indicado en consola (en general 3000)
+Para ejecutar nuestro frontend en svelte, se debe utilizar el comando `` dentro de la carpeta "" e ingresar mediante el browser a localhost en el puerto indicado en consola (en general 5000)
 
 ### Fuentes:
 
