@@ -1,52 +1,66 @@
 <script>
     export let game;
+    import { toggleReminder } from '../store.js';
+
+    export let selected_game_value;
 </script>
 
 <div>
     <img
         alt = ""
-        class="img-game"
+        class="{selected_game_value === game.id ? 'big-img-game' : 'img-game'}"
         src={game.thumbnail}
+        on:click={toggleReminder(game.id)}
     >
     <div class="text">
-        <h3>
+        <h3
+        on:click={toggleReminder(game.id)}
+        >
             { game.title}
         </h3>
+        {#if selected_game_value === game.id }
         <p>Name: { game.title }</p>
         <p>Description: {game.short_description }</p>
 
         <p>Genre: { game.genre }</p>
         <p>Platform: { game.platform }</p>
         <a class="link" href={game.game_url}>Pruebalo aquí</a>
+        {/if}
     </div>
 </div>
 
 <style>
 
     .img-game{
-        width: 365px;
-        height: 206px;
-    
-        overflow: hidden;
-        margin: 0;
-    }
-    
-    .big-img-game{
-        width: 365px;
-        height: 206px;
-    
-        overflow: hidden;
-        margin: 0;
-        margin-right: 1em;
-        float: left;
-    }
-    
-    .text {
-        position: relative;
-    }
-    
+    width: 90%;
+    height: 70%;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    margin: 0;
+}
+.big-img-game{
+    width: 25%;
+    height: 25%;
+    position: block;
+    display: block;
+    overflow: hidden;
+    margin: 0;
+    float: left;
+}
+
     .link {
-        color:slateblue;
+    color:slateblue;
     }
+
+
+    h3 {
+    margin: 0;
+    }
+    p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    }
+
     
 </style>

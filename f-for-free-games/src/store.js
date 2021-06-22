@@ -22,3 +22,8 @@ export const fetchGames =  () => {fetch(endpoint, default_op)
     .then(res => games.update(games => ([...res])))
 
 }
+
+export const toggleReminder =  (gameid) => {
+    selected_game.update(n => n === gameid ? 0 : gameid)
+
+}
