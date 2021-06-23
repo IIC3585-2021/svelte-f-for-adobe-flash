@@ -1,8 +1,12 @@
 <script>
     export let game;
-    import { toggleReminder } from '../store.js';
+    import { toggleReminder, addFavorite, favorite_games } from '../store.js';
 
     export let selected_game_value;
+    let fav_games
+    favorite_games.subscribe(value => {
+		fav_games = value;
+	});
 </script>
 
 <div>
@@ -19,6 +23,7 @@
             { game.title}
         </h3>
         {#if selected_game_value === game.id }
+        <button class="button" on:click={addFavorite(game.id)}>{fav_games.includes(game.id) ? "Remove from Favorites" : "Add to Favorites"}</button>
         <p>Name: { game.title }</p>
         <p>Description: {game.short_description }</p>
 
