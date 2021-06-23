@@ -12,8 +12,8 @@
 	<div class="navbar">
 		<NavBar />
 	</div>
-	<SearchBar />
 	<h1>Encuentra tu juego gratis ideal! </h1>
+	<SearchBar />
 	<h5 class="black"> </h5>
 
 	<BigDiv/>
@@ -22,9 +22,7 @@
 <style>
 	main {
 		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
+		margin: 0%;
 	}
 
 	h1 {

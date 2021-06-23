@@ -30,7 +30,7 @@
       margin-inline-start: 25%;
       margin-inline-end: 0px;
   }
-  </style>
+</style>
 
 <main>
   <div class="wrapper">
