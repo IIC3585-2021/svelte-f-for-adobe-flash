@@ -1,3 +1,4 @@
+import { validate_each_argument } from 'svelte/internal';
 import { writable } from 'svelte/store'
 
 
@@ -11,7 +12,7 @@ export const platforms = writable([]);
 export const genres = writable([]);
 
 export const selected_game = writable(0);
-export const favorite_games = writable([]);
+export const favorite_games = writable([1,2,5]);
 
 export const ratings = writable([]);
 export const star_array = [1, 2, 3, 4, 5];
@@ -89,5 +90,20 @@ export const changeRating =  (gameid, value) => {
         ratings[gameid-1] = value
         return ratings
     })
+}
 
+export const removeFavorite = (value) => {
+    let fav_aux;
+    favorite_games.subscribe(v => {
+        fav_aux = v;
+    });
+    favorite_games.update(() => fav_aux.filter(n => n !== value))
+}
+
+export const addFavorite = (id) => {
+    let fav_aux;
+    favorite_games.subscribe(v => {
+        fav_aux = v;
+    });
+    fav_aux.includes(id) ? removeFavorite(id) : favorite_games.update(() => [...fav_aux, id])
 }
