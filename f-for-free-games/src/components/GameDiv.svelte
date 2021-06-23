@@ -47,6 +47,7 @@
     display: inline-block;
     overflow: hidden;
     margin: 0;
+    cursor: pointer;
 }
 .big-img-game{
     width: 25%;
@@ -56,6 +57,7 @@
     overflow: hidden;
     margin: 0;
     float: left;
+    cursor: pointer;
 }
 
     .link {

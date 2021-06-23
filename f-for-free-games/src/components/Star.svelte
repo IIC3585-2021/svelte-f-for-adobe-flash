@@ -19,12 +19,20 @@
 	.emptystar::before {
         content: "☆";
         font-size: 250%;
+        cursor: pointer;
+    }
+
+    .emptystar:hover:before {
+        content: "★";
+        font-size: 250%;
+        cursor: pointer;
     }
 
     .fullstar::before {
         content: "★";
         font-size: 250%;
         color: yellow;
+        cursor: pointer;
     }
 
 </style>
