@@ -1,3 +1,4 @@
+import { validate_each_argument } from 'svelte/internal';
 import { writable } from 'svelte/store'
 
 
@@ -11,7 +12,7 @@ export const platforms = writable([]);
 export const genres = writable([]);
 
 export const selected_game = writable(0);
-export const favorite_games = writable([]);
+export const favorite_games = writable([1,2,5]);
 
 
 const default_op = {
@@ -77,4 +78,20 @@ export const filterGames = (selGenre, selPlatform) => {
 export const toggleReminder =  (gameid) => {
     selected_game.update(n => n === gameid ? 0 : gameid)
 
+}
+
+export const removeFavorite = (value) => {
+    let fav_aux;
+    favorite_games.subscribe(v => {
+        fav_aux = v;
+    });
+    favorite_games.update(() => fav_aux.filter(n => n !== value))
+}
+
+export const addFavorite = (id) => {
+    let fav_aux;
+    favorite_games.subscribe(v => {
+        fav_aux = v;
+    });
+    fav_aux.includes(id) ? removeFavorite(id) : favorite_games.update(() => [...fav_aux, id])
 }
