@@ -73,3 +73,8 @@ export const filterGames = (selGenre, selPlatform) => {
         games.update(() => (gamesAux.filter((game) => game.genre === selGenre &&  game.platform === selPlatform)))
     }
 }
+
+export const toggleReminder =  (gameid) => {
+    selected_game.update(n => n === gameid ? 0 : gameid)
+
+}

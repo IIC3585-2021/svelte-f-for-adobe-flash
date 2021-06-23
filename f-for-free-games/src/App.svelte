@@ -1,17 +1,17 @@
 <script>
 	import { onMount } from 'svelte';
-	import { games, fetchGames } from './store.js';
-	import GameDiv from "./components/GameDiv.svelte";
 	import SearchBar from "./components/SearchBar.svelte";
+	import { fetchGames } from './store.js'
+	import BigDiv from "./components/BigDiv.svelte"
 
 	onMount(fetchGames)
 </script>
 
 <main>
 	<SearchBar />
-	{#each $games as game}
-		<GameDiv game= {game}/>
-	{/each}
+	<h1>Encuentra tu juego gratis ideal!</h1>
+
+	<BigDiv/>
 </main>
 
 <style>
