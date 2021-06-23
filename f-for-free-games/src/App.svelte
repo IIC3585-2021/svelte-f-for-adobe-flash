@@ -9,7 +9,8 @@
 
 <main>
 	<SearchBar />
-	<h1>Encuentra tu juego gratis ideal!</h1>
+	<h1>Encuentra tu juego gratis ideal! </h1>
+	<h5 class="black"> </h5>
 
 	<BigDiv/>
 </main>

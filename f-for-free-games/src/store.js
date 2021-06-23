@@ -13,6 +13,9 @@ export const genres = writable([]);
 export const selected_game = writable(0);
 export const favorite_games = writable([]);
 
+export const ratings = writable([]);
+export const star_array = [1, 2, 3, 4, 5];
+
 
 const default_op = {
     "method": "GET",
@@ -27,7 +30,9 @@ export const fetchGames =  () => {fetch(endpoint, default_op)
     .then(res => {
         games.update(() => ([...res]))
         allGames.update(games => ([...res]))
-        setFilters([...res]);
+        setFilters([...res])
+        ratings.update(ratings => (new Array(res.length).fill(0)))
+
     })
 }
 
@@ -76,5 +81,13 @@ export const filterGames = (selGenre, selPlatform) => {
 
 export const toggleReminder =  (gameid) => {
     selected_game.update(n => n === gameid ? 0 : gameid)
+
+}
+
+export const changeRating =  (gameid, value) => {
+    ratings.update(ratings => {
+        ratings[gameid-1] = value
+        return ratings
+    })
 
 }

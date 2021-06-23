@@ -1,8 +1,10 @@
 <script>
     export let game;
     import { toggleReminder } from '../store.js';
+    import Star from "./Star.svelte"
 
     export let selected_game_value;
+    export let rating_value;
 </script>
 
 <div>
@@ -25,6 +27,7 @@
         <p>Genre: { game.genre }</p>
         <p>Platform: { game.platform }</p>
         <a class="link" href={game.game_url}>Pruebalo aquí</a>
+        <Star rating_value={rating_value} gameid ={game.id}/>
         {/if}
     </div>
 </div>

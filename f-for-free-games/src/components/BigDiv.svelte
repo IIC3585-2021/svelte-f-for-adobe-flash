@@ -1,5 +1,5 @@
 <script>
-	import { selected_game, games } from '../store.js'
+	import { ratings, selected_game, games } from '../store.js'
 	import GameDiv from "./GameDiv.svelte"
 
     let selected_game_value;
@@ -7,6 +7,12 @@
     selected_game.subscribe(value => {
 		selected_game_value = value;
 	});
+
+    let rating_array;
+
+    ratings.subscribe(value => {
+        rating_array = value;
+    })
 </script>
 
 <main>
@@ -15,7 +21,7 @@
         <div
             class="{selected_game_value === game.id ? 'gamebig' : 'game'}"
         >
-            <GameDiv game= {game} selected_game_value = {selected_game_value}/>
+            <GameDiv game= {game} selected_game_value = {selected_game_value} rating_value = {rating_array[game.id - 1]}/>
         </div>
         {/each}
     </div>
